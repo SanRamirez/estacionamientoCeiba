@@ -1,4 +1,4 @@
-package com.co.ceiba.CeibaEstacionamiento;
+package com.co.ceiba.ceibaestacionamiento;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
