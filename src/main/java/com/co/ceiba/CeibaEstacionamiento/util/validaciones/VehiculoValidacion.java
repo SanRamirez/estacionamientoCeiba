@@ -52,12 +52,24 @@ public class VehiculoValidacion {
 	}
 	
 	public boolean espacioParaParqueoDisponible(int tipoVehiculo) {
-		if (factDao.contarVehiculosParqueadosPorTipo(tipoVehiculo)< Constantes.limitePorTipoVehiculo(tipoVehiculo)) {
+		if (factDao.contarVehiculosParqueadosPorTipo(tipoVehiculo)< limitePorTipoVehiculo(tipoVehiculo)) {
 			LOGGER.debug("Se cuenta con espacio disponible para parqueo de ese vehiculo");
 			return true;
 		}
 		return false;
 	}
 	
+	
+	public  int limitePorTipoVehiculo(int tipoVehiculo) {
+		int limite = 0;
+		if(tipoVehiculo == Constantes.CODIGO_VEHICULO_MOTO) {
+			limite = Constantes.PARQUEADERO_CEIBA_LIMITE_MOTOS;
+		}
+		if(tipoVehiculo == Constantes.CODIGO_VEHICULO_CARRO) {
+			limite = Constantes.PARQUEADERO_CEIBA_LIMITE_CARROS;
+		}
+		
+		return limite;
+	}
 
 }

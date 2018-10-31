@@ -24,17 +24,5 @@ public class  Constantes {
 	private Constantes() {
 		    throw new IllegalStateException("Utility class");
 	}
-	
-	public static int limitePorTipoVehiculo(int tipoVehiculo) {
-		int limite = 0;
-		if(tipoVehiculo == CODIGO_VEHICULO_MOTO) {
-			limite = PARQUEADERO_CEIBA_LIMITE_MOTOS;
-		}
-		if(tipoVehiculo == CODIGO_VEHICULO_CARRO) {
-			limite = PARQUEADERO_CEIBA_LIMITE_CARROS;
-		}
-		
-		return limite;
-	}
 
 }
