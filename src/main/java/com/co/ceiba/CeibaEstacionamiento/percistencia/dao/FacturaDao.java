@@ -7,7 +7,7 @@ import com.co.ceiba.ceibaestacionamiento.percistencia.entity.FacturaEntity;
 
 public interface FacturaDao {
 	
-	boolean guardarFactura(FacturaEntity factura);
+	void guardarFactura(FacturaEntity factura);
 	Vehiculo obtenerVeiculoParqueadoPorPlaca(String placa);
 	boolean actualizarFactura(FacturaEntity factura);
 	List<Vehiculo> obtenerVehiculosPorTipoParqueados(int tipoVehiculo);

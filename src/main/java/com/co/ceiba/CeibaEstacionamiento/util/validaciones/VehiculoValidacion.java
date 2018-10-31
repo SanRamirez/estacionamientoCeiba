@@ -15,7 +15,7 @@ import com.co.ceiba.ceibaestacionamiento.util.Constantes;
 @Component
 public class VehiculoValidacion {
 	
-	private static final Logger log = Logger.getLogger(VehiculoValidacion.class);
+	private static final Logger LOGGER = Logger.getLogger(VehiculoValidacion.class);
 	
 	@Autowired
 	FacturaDao factDao;
@@ -37,7 +37,7 @@ public class VehiculoValidacion {
 		int diaSemana =  calendar.get(Calendar.DAY_OF_WEEK);
 		
 		if(diaSemana==Calendar.SUNDAY || diaSemana==Calendar.MONDAY){
-		   log.debug("fecha ingresada es un domingo o un lunes");
+		   LOGGER.debug("fecha ingresada es un domingo o un lunes");
 		   return true;
 		}
 		return false;
@@ -45,7 +45,7 @@ public class VehiculoValidacion {
 	
 	public boolean tipoVehiculoEsValido(int tipoVehiculo){
 		if(tipoVehiculo==Constantes.CODIGO_VEHICULO_MOTO || tipoVehiculo==Constantes.CODIGO_VEHICULO_CARRO) {
-			log.debug("El tipo de vehiculo ingrasado es valido");
+			LOGGER.debug("El tipo de vehiculo ingrasado es valido");
 			return true;
 		}
 		return false;
@@ -53,7 +53,7 @@ public class VehiculoValidacion {
 	
 	public boolean espacioParaParqueoDisponible(int tipoVehiculo) {
 		if (factDao.contarVehiculosParqueadosPorTipo(tipoVehiculo)< Constantes.limitePorTipoVehiculo(tipoVehiculo)) {
-			log.debug("Se cuenta con espacio disponible para parqueo de ese vehiculo");
+			LOGGER.debug("Se cuenta con espacio disponible para parqueo de ese vehiculo");
 			return true;
 		}
 		return false;

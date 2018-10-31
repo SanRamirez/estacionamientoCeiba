@@ -6,31 +6,20 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.co.ceiba.ceibaestacionamiento.exception.EstacionamientoException;
-
 import com.co.ceiba.ceibaestacionamiento.modelo.Vehiculo;
 import com.co.ceiba.ceibaestacionamiento.percistencia.dao.FacturaDao;
 import com.co.ceiba.ceibaestacionamiento.percistencia.entity.FacturaEntity;
 import com.co.ceiba.ceibaestacionamiento.percistencia.repository.FacturaRepository;
 
-
 @Service
 public class FacturaDaoImp implements FacturaDao {
-	
-	private static final String ERROR_ALMACENAR_FACTURA = "Error al almacenar la factura";
 	
 	@Autowired
 	private FacturaRepository facturaRepository;
 	
 	@Override
-	public boolean guardarFactura(FacturaEntity factura) {
-		
-		try {
+	public void guardarFactura(FacturaEntity factura) {
 			facturaRepository.save(factura);
-			return true;
-		} catch (Exception e) {
-			throw new EstacionamientoException(ERROR_ALMACENAR_FACTURA);
-		}
 	}
 	
 	@Override
